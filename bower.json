@@ -1,0 +1,21 @@
+{
+  "name": "iftt-maker-channel",
+  "version": "1.0.0",
+  "description": "Your component description",
+  "keywords": [
+    "dp",
+    "data",
+    "provider"
+  ],
+  "main": [
+    "iftt-maker-channel.html"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.4.0",
+    "iron-ajax": "^1.2.1"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page",
+    "web-component-tester": "*"
+  }
+}
