@@ -21,7 +21,8 @@ Also, It fires `response`, `error` and `request-in-progress`.
 		<iron-ajax
 			id="dataAjax"
 		    url="{{_serviceURL}}"
-		    method="GET"
+		    method="POST"
+		    content-type="application/json"
 		    on-response="handleResponse"
 		    on-error="handleResponse">
 		</iron-ajax>

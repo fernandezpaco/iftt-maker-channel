@@ -17,14 +17,9 @@
         readonly: true
       },
       key: {
-        type: String,
-        value: 'pjn-53nQ5wBDl-jjRSNPgUfYs28onDTjAhDvF__jMHp'
+        type: String
       },
       event: {
-        type: String,
-        value: 'motion_detected'
-      },
-      value1: {
         type: String
       }
     },
@@ -37,10 +32,27 @@
      * Return requests properties.
      * @return {object}
      */
-    request: function() {
-      if(this.value1)
-        this.$.dataAjax.body+='{"alue1":"'+this.value1+'"}';
-      this.$.dataAjax.generateRequest();
+    request: function(payload) {
+      /**/
+      if(window.cordovaHTTP){
+        var paramUrl = 'https://maker.ifttt.com/trigger/'+event+'/with/key/'+key;
+        var paramHeaders = JSON.parse('{"Content-Type":"application/json"}');
+        var paramBody;
+        if(payload)
+          paramBody='{"value1":"'+payload+'"}';
+        window.cordovaHTTP.post(paramUrl, paramBody, paramHeaders,
+        function(response) {
+            console.log(response.status);
+                            console.log(response.data);
+                            console.log(response.responseHeaderAllFields);
+        }, function(response) {
+            console.error(response.error);
+        });  
+      }else{
+        if(payload)
+          this.$.dataAjax.body+='{"value1":"'+payload+'"}';
+        this.$.dataAjax.generateRequest();
+      }    
       //
     },
 
