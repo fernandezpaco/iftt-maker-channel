@@ -49,8 +49,7 @@
             console.error(response.error);
         });  
       }else{
-        if(payload)
-          this.$.dataAjax.body+='{"value1":"'+payload+'"}';
+        this.$.dataAjax.body='{"value1":"'+payload+'"}';
         this.$.dataAjax.generateRequest();
       }    
       //
